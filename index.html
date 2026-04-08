@@ -359,10 +359,16 @@
                             <div id="couponDisplay" class="hidden bg-gold-50 border-2 border-dashed border-gold-400 p-6 rounded-2xl mt-6 relative">
                                 <p class="text-xs text-gold-600 font-bold uppercase tracking-widest mb-2">هدية خاصة لك!</p>
                                 <p class="text-sm font-bold text-gray-800 mb-4">كوبون خصم 10% صالح لمدة 48 ساعة على جميع المنتجات</p>
-                                <div class="bg-white border-2 border-gray-100 py-3 px-6 rounded-xl font-black text-2xl tracking-widest text-black inline-block">
-                                    MATJARI-SAVE10
+                                <div class="flex flex-col items-center gap-3">
+                                    <div id="couponCodeText" class="bg-white border-2 border-gray-100 py-3 px-6 rounded-xl font-black text-2xl tracking-widest text-black inline-block">
+                                        MATJARI-SAVE10
+                                    </div>
+                                    <button type="button" onclick="copyCouponCode()" class="flex items-center gap-2 text-gold-600 font-bold text-sm hover:text-gold-700 transition">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                        <span>نسخ الكود</span>
+                                    </button>
                                 </div>
-                                <p class="text-[10px] text-gray-400 mt-4 italic">* يرجى تصوير الشاشة لحفظ الكود</p>
+                                <p class="text-[10px] text-gray-400 mt-4 italic">* يرجى حفظ الكود أو تصوير الشاشة لاستخدامه لاحقاً</p>
                             </div>
 
                             <p class="text-xs text-gray-400 mt-6">جاري توجيهك للمتجر...</p>
@@ -839,6 +845,20 @@
             // Update bottom sticky bar total
             const stickyTotal = document.querySelector('.fixed.bottom-0 .gold-text');
             if (stickyTotal) stickyTotal.innerText = priceStr;
+        }
+
+        function copyCouponCode() {
+            const code = document.getElementById('couponCodeText').innerText.trim();
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.currentTarget;
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i><span>تم النسخ!</span>';
+                lucide.createIcons();
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    lucide.createIcons();
+                }, 2000);
+            });
         }
         
         let currentImageIndex = 0;
