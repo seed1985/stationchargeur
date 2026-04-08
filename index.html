@@ -896,21 +896,35 @@
         const paymentSection = document.getElementById('paymentSection');
         const summarySection = document.getElementById('summarySection');
 
+        // Form Submission Logic
+        const orderForm = document.getElementById('orderForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const successMessage = document.getElementById('successMessage');
+        const formFields = document.getElementById('formFields');
+        const paymentSection = document.getElementById('paymentSection');
+        const summarySection = document.getElementById('summarySection');
+
         function showLoading() {
             submitBtn.disabled = true;
             btnText.innerText = 'جاري إرسال الطلب...';
             submitBtn.classList.add('opacity-70');
         }
 
+        function hideLoading() {
+            submitBtn.disabled = false;
+            btnText.innerText = 'تأكيد الطلب الآن';
+            submitBtn.classList.remove('opacity-70');
+        }
+
         function showSuccess() {
             const val = currentQuantity >= 2 ? 379 : pricePerUnit;
             console.log('TikTok Event: CompletePayment', val);
-            // Track TikTok Event: CompletePayment
             if (typeof ttq !== 'undefined') {
                 ttq.track('CompletePayment', {
                     contents: [{
                         content_id: 'triple-charging-station',
-                         content_name: 'محطة شحن ثلاثية',
+                        content_name: 'محطة شحن ثلاثية',
                         quantity: currentQuantity,
                         price: currentQuantity >= 2 ? 189.5 : pricePerUnit
                     }],
@@ -919,64 +933,70 @@
                 });
             }
 
-            // Show coupon if quantity >= 3
             if (currentQuantity >= 3) {
                 document.getElementById('couponDisplay').classList.remove('hidden');
             }
 
-            // Hide form elements
             formFields.classList.add('hidden');
             paymentSection.classList.add('hidden');
             summarySection.classList.add('hidden');
-            
-            // Show success message
             successMessage.classList.remove('hidden');
-            lucide.createIcons(); // Initialize check-circle icon
+            lucide.createIcons();
 
-            // Redirect after 5 seconds instead of 3 if coupon is shown
             setTimeout(() => {
                 window.location.href = 'https://2134719.dukan.shop/';
             }, currentQuantity >= 3 ? 8000 : 3000);
         }
 
-        // Initialize Formspree AJAX
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { 
-            formElement: '#orderForm', 
-            formId: 'meepgnnv',
-            onSubmit: () => {
-                const val = currentQuantity >= 2 ? 379 : pricePerUnit;
-                console.log('TikTok Event: PlaceAnOrder (Button Click)', val);
-                if (typeof ttq !== 'undefined') {
-                    ttq.track('PlaceAnOrder', {
-                        contents: [{
-                            content_id: 'triple-charging-station',
-                         content_name: 'محطة شحن ثلاثية',
-                            quantity: currentQuantity,
-                            price: currentQuantity >= 2 ? 189.5 : pricePerUnit
-                        }],
-                        value: val,
-                        currency: 'SAR'
-                    });
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+            if (typeof ttq !== 'undefined') {
+                ttq.track('PlaceAnOrder', {
+                    contents: [{
+                        content_id: 'triple-charging-station',
+                        content_name: 'محطة شحن ثلاثية',
+                        quantity: currentQuantity,
+                        price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                    }],
+                    value: val,
+                    currency: 'SAR'
+                });
+            }
+
+            showLoading();
+
+            const formData = new FormData(orderForm);
+            
+            try {
+                const response = await fetch(orderForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    showSuccess();
+                } else {
+                    const data = await response.json();
+                    if (data.errors) {
+                        alert(data.errors.map(error => error.message).join(", "));
+                    } else {
+                        alert('عذراً، حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                    }
+                    hideLoading();
                 }
-                showLoading();
-                return true; // Ensure the library continues
-            },
-            onSuccess: (data) => {
-                console.log('Success:', data);
-                showSuccess();
-            },
-            onError: (err) => {
-                console.error('Error:', err);
-                submitBtn.disabled = false;
-                btnText.innerText = 'تأكيد الطلب الآن';
-                submitBtn.classList.remove('opacity-70');
-                alert('عذراً، حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى أو التأكد من تفعيل الفورم في Formspree.');
+            } catch (error) {
+                alert('عذراً، حدث خطأ في الاتصال. يرجى التأكد من اتصالك بالإنترنت والمحاولة مرة أخرى.');
+                hideLoading();
             }
         });
     </script>
 
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+    <!-- Supprimé le script formspree/ajax car on utilise fetch natif pour plus de fiabilité -->
 
 </body>
 </html>
