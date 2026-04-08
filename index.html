@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محطة شحن ثلاثية - Matjari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=r+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+    
+      ttq.load('D7A10R3C77U41AUTN8IG');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            background-color: #fcfcfc;
+        }
+        .gradient-top {
+            background: linear-gradient(90deg, #1a1a1a 0%, #333333 100%);
+        }
+        .gold-text {
+            color: #d4af37;
+        }
+        .gold-bg {
+            background-color: #d4af37;
+        }
+        .btn-luxury {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .card-luxury {
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+        }
+        .card-luxury:hover {
+            border-color: #d4af37;
+        }
+        /* Form Validation Styles */
+        input:invalid:focus, select:invalid:focus {
+            border-color: #ef4444 !important;
+        }
+        input:valid:focus, select:valid:focus {
+            border-color: #d4af37 !important;
+        }
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .sticky-mobile-fix {
+                position: relative !important;
+                top: 0 !important;
+            }
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+        [dir="rtl"] .animate-marquee {
+            animation: marquee-rtl 25s linear infinite;
+        }
+        @keyframes marquee-rtl {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <div class="gradient-top text-white py-2 overflow-hidden whitespace-nowrap border-b border-white/10 shadow-lg">
+        <div class="flex animate-marquee space-x-12 space-x-reverse">
+            <span class="flex items-center text-xs md:text-sm font-bold tracking-widest"><i data-lucide="truck" class="w-4 h-4 ml-2 gold-text"></i> توصيل سريع لجميع مدن المملكة (الرياض، جدة، الدمام...)</span>
+            <span class="flex items-center text-xs md:text-sm font-bold tracking-widest"><i data-lucide="shield-check" class="w-4 h-4 ml-2 gold-text"></i> ضمان استبدال واسترجاع حقيقي</span>
+            <span class="flex items-center text-xs md:text-sm font-bold tracking-widest"><i data-lucide="package" class="w-4 h-4 ml-2 gold-text"></i> الدفع عند الاستلام متاح</span>
+            <span class="flex items-center text-xs md:text-sm font-bold tracking-widest"><i data-lucide="star" class="w-4 h-4 ml-2 gold-text"></i> جودة مضمونة 100%</span>
+        </div>
+    </div>
+
+    <!-- Main Header Area -->
+    <div class="bg-white py-6 border-b">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-6">
+                <div class="flex space-x-2 space-x-reverse">
+                    <div class="bg-black text-white w-12 h-12 flex items-center justify-center rounded-lg font-bold shadow-lg">24</div>
+                    <div class="bg-black text-white w-12 h-12 flex items-center justify-center rounded-lg font-bold shadow-lg">49</div>
+                    <div class="bg-black text-white w-12 h-12 flex items-center justify-center rounded-lg font-bold shadow-lg">01</div>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="flex items-center justify-center md:justify-end text-black font-black mb-1">
+                    <i data-lucide="crown" class="w-6 h-6 ml-2 gold-text floating"></i>
+                    <span class="text-xl uppercase tracking-widest">عرض رمضان الخاص</span>
+                </div>
+                <p class="gold-text font-black text-2xl">خصم لفترة محدودة لعملاء السعودية</p>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <div class="flex items-center text-green-600 font-bold bg-green-50 px-4 py-2 rounded-full border border-green-100 shadow-sm">
+                    <i data-lucide="truck" class="w-5 h-5 ml-2"></i>
+                    توصيل مجاني وسريع لكافة أنحاء المملكة
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <!-- Left Side: Product Info & Form -->
+            <div class="flex-1 space-y-8 order-2 lg:order-1">
+                <div class="space-y-4">
+                    <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
+                        محطة شحن ثلاثية
+                    </h1>
+                    
+                    <div class="flex items-center gap-4">
+                            <span id="mainPrice" class="text-3xl font-black text-gray-900">239.00 ر.س</span>
+                            <span id="originalPrice" class="text-gray-400 line-through text-lg">390.00 ر.س</span>
+                            <span id="discountBadge" class="bg-red-600 text-white text-xs px-2 py-1 rounded-md font-bold">خصم 39%</span>
+                        </div>
+                    <p class="text-gray-500 text-sm">شامل الضريبة</p>
+
+                    <div class="flex items-center gap-6 py-2">
+                        <div class="flex items-center text-yellow-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <span class="text-gray-900 font-bold mr-1">4.9</span>
+                            <span class="text-gray-400 text-xs mr-2">12 مراجعة مؤكدة</span>
+                        </div>
+                        <div class="flex items-center text-green-600 text-sm font-bold bg-green-50 px-2 py-1 rounded">
+                            <span class="w-2 h-2 bg-green-600 rounded-full ml-2"></span>
+                            متاح
+                        </div>
+                    </div>
+
+                    <!-- Persuasion signals -->
+                    <div class="flex flex-col gap-2 mt-4">
+                        <div class="flex items-center text-red-600 text-sm font-bold bg-red-50 p-3 rounded-xl border border-red-100">
+                            <i data-lucide="flame" class="w-4 h-4 ml-2 animate-bounce"></i>
+                            أكثر من ٤٥٢ طلب تم توصيله في السعودية هذا الأسبوع!
+                        </div>
+                        <div class="flex items-center text-gray-500 text-xs bg-gray-50 p-2 rounded-lg">
+                            <i data-lucide="users" class="w-3 h-3 ml-2"></i>
+                            يتصفح هذا المنتج الآن <span class="font-bold text-black mx-1">٥٤ شخص</span> من السعودية
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                        <div class="flex items-center border-2 border-gray-100 rounded-xl h-14 bg-white px-3 shadow-sm">
+                            <button onclick="updateQuantity(-1)" class="p-2 hover:bg-gray-50 text-gray-500 transition"><i data-lucide="minus" class="w-5 h-5"></i></button>
+                            <input type="text" id="quantityInput" value="1" readonly class="w-14 text-center font-black text-xl outline-none">
+                            <button onclick="updateQuantity(1)" class="p-2 hover:bg-gray-50 text-gray-500 transition"><i data-lucide="plus" class="w-5 h-5"></i></button>
+                        </div>
+                        <button onclick="addToCart()" class="flex-1 bg-white border-2 border-black text-black h-14 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition shadow-sm">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            أضف للسلة
+                        </button>
+                    </div>
+                    <button onclick="scrollToCheckout()" class="w-full btn-luxury text-white h-16 rounded-xl font-black text-xl flex items-center justify-center gap-3 shadow-xl mt-4 pulse-gold relative overflow-hidden group">
+                        <div class="absolute inset-0 shimmer opacity-50 group-hover:opacity-100 transition"></div>
+                        <i data-lucide="zap" class="w-6 h-6 gold-text relative z-10"></i>
+                        <span class="relative z-10">اطلب الآن - توصيل مجاني</span>
+                    </button>
+
+                    <!-- Trust badges below button -->
+                    <div class="flex items-center justify-center gap-6 mt-6 opacity-70">
+                        <div class="flex flex-col items-center gap-1">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-green-600"></i>
+                            <span class="text-[9px] font-bold">ضمان أصلي</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1">
+                            <i data-lucide="truck" class="w-6 h-6 text-gray-700"></i>
+                            <span class="text-[9px] font-bold">توصيل آمن</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1">
+                            <i data-lucide="award" class="w-6 h-6 gold-text"></i>
+                            <span class="text-[9px] font-bold">جودة ممتازة</span>
+                        </div>
+                    </div>
+
+                    <!-- Timer Section -->
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center justify-between mt-6">
+                        <div class="flex gap-2">
+                            <div class="bg-white border border-red-200 text-red-600 w-8 h-8 flex items-center justify-center rounded font-bold">02</div>
+                            <div class="bg-white border border-red-200 text-red-600 w-8 h-8 flex items-center justify-center rounded font-bold">41</div>
+                            <div class="bg-white border border-red-200 text-red-600 w-8 h-8 flex items-center justify-center rounded font-bold">01</div>
+                        </div>
+                        <div class="flex items-center text-red-600 font-bold">
+                            ينتهي التخفيض خلال
+                            <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Bundle Offers -->
+                    <div class="mt-10">
+                        <div class="flex items-center text-green-600 font-bold mb-4">
+                            <i data-lucide="badge-percent" class="w-6 h-6 ml-2"></i>
+                            اشتري اكثر و وفر
+                        </div>
+                        <div class="space-y-4">
+                            <!-- Offer 1 -->
+                            <div id="offer1" onclick="selectOffer(1, 239)" class="offer-card border-2 border-blue-400 bg-blue-50 rounded-xl p-4 relative cursor-pointer">
+                                <div class="flex justify-between items-start">
+                                    <div class="text-left">
+                                        <p class="font-bold">قطعة واحدة</p>
+                                    </div>
+                                    <div class="bg-red-600 text-white text-xs px-2 py-1 rounded font-bold">خصم 39%</div>
+                                </div>
+                                <div class="flex justify-between items-end mt-4">
+                                    <p class="text-xs text-gray-500">للقطعة الواحدة <span class="line-through">390</span> <span class="text-gray-900 font-bold">239 ر.س</span></p>
+                                    <p class="font-bold text-lg">الإجمالي: 239 ر.س</p>
+                                </div>
+                            </div>
+                            <!-- Offer 2 -->
+                            <div id="offer2" onclick="selectOffer(2, 379)" class="offer-card border border-gray-200 bg-white rounded-xl p-4 cursor-pointer hover:border-blue-400 transition">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="font-bold">اشتري قطعتين أو أكثر ووفر 51%</p>
+                                        <p class="text-xs text-gray-400">سعر الوحدة 189.5 ريال فقط</p>
+                                        <p class="text-xs text-green-600 font-bold mt-1 animate-pulse">🎁 اشتري 3 قطع واحصل على كوبون 10%!</p>
+                                    </div>
+                                    <div id="bulkDiscountBadge" class="bg-red-600 text-white text-xs px-2 py-1 rounded font-bold">خصم 51%</div>
+                                </div>
+                                <div class="flex justify-between items-end mt-4">
+                                    <p class="text-xs text-gray-500">للقطعة الواحدة <span class="line-through">390</span> <span class="text-gray-900 font-bold">189.50 ر.س</span></p>
+                                    <p id="bulkOfferTotal" class="font-bold text-lg">الإجمالي: 379.00 ر.س</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <div id="checkoutSection" class="bg-white border-2 border-gray-100 rounded-2xl p-8 shadow-2xl space-y-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full gold-bg"></div>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-black">إتمام الطلب</h2>
+                        <p class="text-gray-400 text-sm mt-1">يرجى إدخال بيانات التوصيل بدقة</p>
+                    </div>
+                    
+                    <form id="orderForm" action="https://formspree.io/f/meepgnnv" method="POST">
+                        <input type="hidden" id="formQuantity" name="quantity" value="1">
+                        <input type="hidden" id="formTotal" name="total" value="239 ر.س">
+                        <input type="hidden" name="product_name" value="محطة شحن ثلاثية">
+                        <input type="hidden" id="formCoupon" name="coupon_code" value="لا يوجد">
+                        
+                        <div id="formFields" class="grid grid-cols-1 gap-5">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-gray-500 mr-1 uppercase">الاسم بالكامل</label>
+                                <input type="text" name="name" placeholder="مثال: محمد السعد" required minlength="3" data-fs-field class="w-full border-2 border-gray-50 rounded-xl h-14 px-5 outline-none focus:border-black transition bg-gray-50/50">
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-gray-500 mr-1 uppercase">المدينة</label>
+                                <input type="text" name="city" placeholder="مثال: الرياض" required data-fs-field class="w-full border-2 border-gray-50 rounded-xl h-14 px-5 outline-none focus:border-black transition bg-gray-50/50">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-gray-500 mr-1 uppercase">رقم الجوال</label>
+                                <input type="tel" name="phone" placeholder="مثال: 9665XXXXXXXX" required pattern="[0-9]{7,15}" title="يرجى إدخال رقم هاتف صحيح (أرقام فقط)" data-fs-field class="w-full border-2 border-gray-50 rounded-xl h-14 px-5 outline-none focus:border-black transition bg-gray-50/50">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-gray-500 mr-1 uppercase">العنوان بالتفصيل (توصيل مجاني)</label>
+                                <input type="text" name="address" placeholder="الحي، الشارع، رقم المنزل" required data-fs-field class="w-full border-2 border-gray-50 rounded-xl h-14 px-5 outline-none focus:border-black transition bg-gray-50/50">
+                                <div class="flex items-center text-[10px] text-gray-400 mt-1 mr-1">
+                                    <i data-lucide="refresh-cw" class="w-3 h-3 ml-1"></i>
+                                    سياسة إرجاع ١٥ يوم
+                                </div>
+                            </div>
+                            
+                            <textarea name="message" placeholder="ملاحظات إضافية للمندوب (اختياري)" data-fs-field class="w-full border-2 border-gray-50 rounded-xl h-28 p-5 outline-none focus:border-black transition bg-gray-50/50"></textarea>
+                        </div>
+
+                        <div id="paymentSection" class="space-y-4 mt-8">
+                            <label class="text-xs font-bold text-gray-500 uppercase mr-1">طريقة الدفع</label>
+                            <div class="border-2 border-black rounded-2xl p-5 flex items-center justify-between bg-black text-white shadow-xl">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-6 h-6 border-4 border-white rounded-full flex items-center justify-center">
+                                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="font-black text-lg">الدفع عند الاستلام</span>
+                                    </div>
+                                    <input type="hidden" name="payment_method" value="الدفع عند الاستلام">
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="truck" class="w-8 h-8 gold-text"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="summarySection" class="border-t-2 border-dashed border-gray-100 pt-8 space-y-6 mt-8">
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-xl font-black text-black">ملخص الطلب</span>
+                                </div>
+                                <div class="text-right">
+                                    <span id="summaryTotal" class="text-3xl font-black gold-text">239.00 ر.س</span>
+                                    <p class="text-[10px] text-green-600 font-bold uppercase">شحن مجاني</p>
+                                </div>
+                            </div>
+                            <button type="submit" id="submitBtn" data-fs-submit-btn class="w-full btn-luxury text-white h-20 rounded-2xl font-black text-2xl flex flex-col items-center justify-center shadow-2xl transition hover:scale-[1.02] active:scale-[0.98]">
+                                <span id="btnText">تأكيد الطلب الآن</span>
+                                <span id="buttonTotal" class="text-xs font-normal opacity-70 tracking-widest">(239.00 ر.س)</span>
+                            </button>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div id="successMessage" class="hidden text-center py-10 space-y-4 animate-in fade-in zoom-in duration-500">
+                            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i data-lucide="check-circle" class="w-12 h-12"></i>
+                            </div>
+                            <h3 class="text-2xl font-black">تم استلام طلبك بنجاح!</h3>
+                            <p class="text-gray-500">شكراً لثقتكم بنا. سنتصل بكم قريباً لتأكيد التوصيل.</p>
+                            
+                            <div id="couponDisplay" class="hidden bg-gold-50 border-2 border-dashed border-gold-400 p-6 rounded-2xl mt-6 relative">
+                                <p class="text-xs text-gold-600 font-bold uppercase tracking-widest mb-2">هدية خاصة لك!</p>
+                                <p class="text-sm font-bold text-gray-800 mb-4">كوبون خصم 10% صالح لمدة 48 ساعة على جميع المنتجات</p>
+                                <div class="bg-white border-2 border-gray-100 py-3 px-6 rounded-xl font-black text-2xl tracking-widest text-black inline-block">
+                                    MATJARI-SAVE10
+                                </div>
+                                <p class="text-[10px] text-gray-400 mt-4 italic">* يرجى تصوير الشاشة لحفظ الكود</p>
+                            </div>
+
+                            <p class="text-xs text-gray-400 mt-6">جاري توجيهك للمتجر...</p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Description Section -->
+                <div class="bg-white border rounded-xl p-8 shadow-sm space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-black border-b pb-4 mb-6">الوصف</h2>
+                        
+                        <div class="space-y-6 text-gray-700 leading-relaxed">
+                            <!-- Marketing Angles -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gold-50/30 p-4 rounded-xl border border-gold-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="zap" class="w-4 h-4 gold-text"></i>
+                                        زاوية الشحن المتعدد
+                                    </h4>
+                                    <p class="text-xs">يشحن جوالك وسماعاتك وساعة أبل بنفس الوقت</p>
+                                </div>
+                                <div class="bg-blue-50/30 p-4 rounded-xl border border-blue-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="zap" class="w-4 h-4 text-blue-500"></i>
+                                        زاوية الشحن السريع
+                                    </h4>
+                                    <p class="text-xs">يدعم شحن لاسلكي سريع لجميع الأجهزة المتوافقة</p>
+                                </div>
+                                <div class="bg-green-50/30 p-4 rounded-xl border border-green-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="volume-2" class="w-4 h-4 text-green-500"></i>
+                                        زاوية مكبر الصوت
+                                    </h4>
+                                    <p class="text-xs">يعطي صوت واضح وممتع أثناء الشحن</p>
+                                </div>
+                                <div class="bg-purple-50/30 p-4 rounded-xl border border-purple-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="sparkles" class="w-4 h-4 text-purple-500"></i>
+                                        زاوية الإضاءة
+                                    </h4>
+                                    <p class="text-xs">أضواء RGB تضيف لمسة فنية وأجواء رائعة</p>
+                                </div>
+                                <div class="bg-orange-50/30 p-4 rounded-xl border border-orange-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="palette" class="w-4 h-4 text-orange-500"></i>
+                                        زاوية التصميم العصري
+                                    </h4>
+                                    <p class="text-xs">تصميم كرة أنيق يزين مكتبك أو الغرفة</p>
+                                </div>
+                                <div class="bg-red-50/30 p-4 rounded-xl border border-red-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="smile" class="w-4 h-4 text-red-500"></i>
+                                        زاوية الراحة
+                                    </h4>
+                                    <p class="text-xs">تحكم سهل وسلس لجميع الأجهزة المتصلة بالشاحن</p>
+                                </div>
+                                <div class="bg-indigo-50/30 p-4 rounded-xl border border-indigo-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-indigo-500"></i>
+                                        زاوية التوافق
+                                    </h4>
+                                    <p class="text-xs">مناسب لجميع جوالات iOS وسماعات الأذن الذكية</p>
+                                </div>
+                                <div class="bg-gray-50/30 p-4 rounded-xl border border-gray-100/50">
+                                    <h4 class="font-bold text-black flex items-center gap-2 mb-2">
+                                        <i data-lucide="bluetooth" class="w-4 h-4 text-gray-500"></i>
+                                        زاوية المسافة
+                                    </h4>
+                                    <p class="text-xs">بلوتوث يدعم توصيل حتى 10 أمتار بدون مشاكل</p>
+                                </div>
+                            </div>
+
+                            <hr class="border-gray-100">
+
+                            <!-- Features -->
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-black flex items-center gap-2">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600"></i>
+                                    المميزات:
+                                </h3>
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 mr-2">
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> يشحن جوالك وساعة أبل وسماعاتك الذكية بنفس الوقت</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> يدعم شحن لاسلكي سريع لجميع الأجهزة المتوافقة</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> يحتوي على مكبر صوت بلوتوث 3 وات بجودة عالية</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> أضواء RGB تضيف جو ممتع وأنيق لغرفتك</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> تصميم كرة عصري يزين المكتب أو السرير بشكل رائع</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> يدعم اتصال بلوتوث مستقر لمسافة تصل إلى 10 أمتار</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> يحتوي على بطارية 500 مللي أمبير لتشغيل مؤقت بدون كهرباء</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> مزود بمنافذ شحن متعددة لكل أجهزتك بسرعة وأمان</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> سهل الاستخدام مع أي جهاز يدعم الشحن اللاسلكي</li>
+                                    <li class="flex items-start gap-2"><span class="text-green-500 mt-1">●</span> مزود بحماية للشحن الزائد لحماية أجهزتك بشكل كامل</li>
+                                </ul>
+                            </div>
+
+                            <hr class="border-gray-100">
+
+                            <!-- Specifications -->
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-black flex items-center gap-2">
+                                    <i data-lucide="settings" class="w-5 h-5 text-blue-600"></i>
+                                    مواصفات المنتج:
+                                </h3>
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mr-2 bg-gray-50 p-4 rounded-xl">
+                                    <li><span class="font-bold">النوع:</span> شاحن ذكي 5 في 1 مع مكبر صوت وكرة إضاءة</li>
+                                    <li><span class="font-bold">الأبعاد:</span> 16.5 × 7.2 × 14.8 سم</li>
+                                    <li><span class="font-bold">الخامة:</span> بلاستيك ومعدن متين</li>
+                                    <li><span class="font-bold">الإدخال:</span> USB-C 5V/2A، 9V/3A</li>
+                                    <li><span class="font-bold">مخرجات شحن الجوال:</span> 5W/7.5W/10W/15W</li>
+                                    <li><span class="font-bold">البطارية:</span> 500mAh مدمجة</li>
+                                    <li><span class="font-bold">بلوتوث:</span> V5.2</li>
+                                 </ul>
+                            </div>
+
+                            <hr class="border-gray-100">
+
+                            <!-- Package Contents -->
+                            <div class="space-y-3">
+                                <h3 class="font-bold text-lg text-black flex items-center gap-2">
+                                    <i data-lucide="package-open" class="w-5 h-5 text-orange-600"></i>
+                                    محتويات المنتج:
+                                </h3>
+                                <ul class="list-disc list-inside space-y-1 mr-4">
+                                    <li>1× شاحن ذكي 5 في 1 مع مكبر صوت وكرة إضاءة</li>
+                                    <li>1× كابل شاحن USB 5 فولت</li>
+                                    <li>1× دليل استخدام</li>
+                                </ul>
+                            </div>
+
+                            <hr class="border-gray-100">
+
+                            <!-- How to use -->
+                            <div class="space-y-3 bg-gold-50 p-4 rounded-xl border border-gold-100">
+                                <h3 class="font-bold text-lg text-black flex items-center gap-2">
+                                    <i data-lucide="help-circle" class="w-5 h-5 gold-text"></i>
+                                    طريقة الاستخدام:
+                                </h3>
+                                <ol class="list-decimal list-inside space-y-2 mr-4 font-medium">
+                                    <li>وصل الشاحن بالكهرباء عن طريق كابل USB-C</li>
+                                    <li>ضع جوالك أو سماعاتك أو ساعة أبل على المكان المخصص</li>
+                                    <li>شغل البلوتوث للاستماع للموسيقى من مكبر الصوت</li>
+                                    <li>يمكنك تعديل ألوان أضواء RGB حسب رغبتك</li>
+                                    <li>نظف الجهاز بقطعة قماش جافة بدون ماء للحفاظ عليه</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div class="bg-white border rounded-xl p-8 shadow-sm space-y-8">
+                    <div class="flex items-center justify-between border-b pb-4">
+                        <h2 class="text-2xl font-black flex items-center gap-2">
+                            <i data-lucide="star" class="w-6 h-6 text-yellow-400 fill-current"></i>
+                            تقييمات العملاء
+                        </h2>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <span class="text-gray-900 font-bold mr-2 text-lg">4.9</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <!-- Review 1 -->
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold">ع</div>
+                            <div class="flex-1 space-y-1 text-right">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold">عبدالعزيز - الرياض</span>
+                                    <span class="text-green-600 text-xs flex items-center"><i data-lucide="check-circle" class="w-3 h-3 ml-1"></i> موثقة</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                </div>
+                                <p class="text-xs text-gray-400">منذ ساعتين</p>
+                                <p class="text-sm">"بصراحة هذا المنتج اختصار لكل شيء! أشحن جوالي وساعتي وسماعتي في نفس المكان، والصوت حق السبيكر ممتاز جداً للاسترخاء قبل النوم. الإضاءة RGB تعطي جو فخم للغرفة."</p>
+                            </div>
+                        </div>
+                        <!-- Review 2 -->
+                        <div class="flex gap-4 items-start border-t pt-6">
+                            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold">ن</div>
+                            <div class="flex-1 space-y-1 text-right">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold">نورة - جدة</span>
+                                    <span class="text-green-600 text-xs flex items-center"><i data-lucide="check-circle" class="w-3 h-3 ml-1"></i> موثقة</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                </div>
+                                <p class="text-xs text-gray-400">يوم واحد</p>
+                                <p class="text-sm">"أحلى إضافة لمكتبي، شكل الكرة أنيق جداً والاتصال بالبلوتوث سريع. التوصيل كان سريع والخدمة ممتازة. أنصح فيه بقوة لكل أحد يدور هدية فخمة أو يبي يرتب مكتبه."</p>
+                            </div>
+                        </div>
+                        <!-- Review 3 -->
+                        <div class="flex gap-4 items-start border-t pt-6">
+                            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold">ف</div>
+                            <div class="flex-1 space-y-1 text-right">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold">فهد - الدمام</span>
+                                    <span class="text-green-600 text-xs flex items-center"><i data-lucide="check-circle" class="w-3 h-3 ml-1"></i> موثقة</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                </div>
+                                <p class="text-xs text-gray-400">يومان</p>
+                                <p class="text-sm">"الجودة فوق التوقعات! الخامة قوية والشحن سريع فعلاً. عجبني تحكم الإضاءة والبطارية المدمجة اللي تخليه يشتغل حتى لو فصلت السلك لفترة. يستاهل كل ريال."</p>
+                            </div>
+                        </div>
+                        <!-- Review 4 -->
+                        <div class="flex gap-4 items-start border-t pt-6">
+                            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold">م</div>
+                            <div class="flex-1 space-y-1 text-right">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold">منى - مكة</span>
+                                    <span class="text-green-600 text-xs flex items-center"><i data-lucide="check-circle" class="w-3 h-3 ml-1"></i> موثقة</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                </div>
+                                <p class="text-xs text-gray-400">٣ أيام</p>
+                                <p class="text-sm">"وصلني اليوم التغليف كان ممتاز والشاحن يجنن! الصوت نقي والوان الإضاءة هادية ومريحة للعين. شكراً متجري على المصداقية."</p>
+                            </div>
+                        </div>
+                        <!-- Review 5 -->
+                        <div class="flex gap-4 items-start border-t pt-6">
+                            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold">خ</div>
+                            <div class="flex-1 space-y-1 text-right">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold">خالد - المدينة المنورة</span>
+                                    <span class="text-green-600 text-xs flex items-center"><i data-lucide="check-circle" class="w-3 h-3 ml-1"></i> موثقة</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-4 h-4 text-gray-300"></i>
+                                </div>
+                                <p class="text-xs text-gray-400">أسبوع</p>
+                                <p class="text-sm">"تجربة ممتازة، شاحن عملي ويختصر زحمة الشواحن. جودة السبيكر فاجأتني مقارنة بحجمه الصغير. خدمة التوصيل والدفع عند الاستلام ريحتني كثير."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Product Gallery -->
+            <div class="lg:w-1/2 order-1 lg:order-2">
+                <div class="sticky top-24 sticky-mobile-fix space-y-4">
+                    <div class="relative group">
+                        <img src="image-1.jpg" 
+                             alt="محطة شحن ثلاثية" 
+                             id="mainImage"
+                             class="w-full rounded-2xl shadow-lg aspect-square object-cover">
+                        <div class="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition">
+                            <button onclick="prevImage()" class="bg-white/80 p-2 rounded-full shadow-md hover:bg-white"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+                            <button onclick="nextImage()" class="bg-white/80 p-2 rounded-full shadow-md hover:bg-white"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <img src="image-1.jpg" onclick="changeImage(this)" class="thumb-img rounded-lg border-2 border-black cursor-pointer aspect-square object-cover">
+                        <img src="image-2.jpg" onclick="changeImage(this)" class="thumb-img rounded-lg border border-gray-200 cursor-pointer hover:border-black aspect-square object-cover">
+                        <img src="image-3.jpg" onclick="changeImage(this)" class="thumb-img rounded-lg border border-gray-200 cursor-pointer hover:border-black aspect-square object-cover">
+                        <img src="image-4.jpg" onclick="changeImage(this)" class="thumb-img rounded-lg border border-gray-200 cursor-pointer hover:border-black aspect-square object-cover">
+                        <img src="image-5.jpg" onclick="changeImage(this)" class="thumb-img rounded-lg border border-gray-200 cursor-pointer hover:border-black aspect-square object-cover">
+                        <img src="image-6.jpg" onclick="changeImage(this)" class="thumb-img rounded-lg border border-gray-200 cursor-pointer hover:border-black aspect-square object-cover">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Sticky Bottom Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t p-4 z-50 flex items-center justify-between md:px-24 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+        <div class="flex flex-col">
+            <span class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Price / السعر</span>
+            <span class="font-black text-xl gold-text">239.00 ر.س</span>
+        </div>
+        <button onclick="scrollToCheckout()" class="btn-luxury text-white px-10 py-3 rounded-xl font-black text-lg shadow-lg pulse-gold">
+            اطلب الآن
+        </button>
+    </div>
+
+    <footer class="bg-white border-t py-12 mb-20">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-8">
+            <div class="flex justify-center gap-8">
+                <i data-lucide="facebook" class="w-6 h-6 text-gray-300 hover:gold-text cursor-pointer transition"></i>
+                <i data-lucide="instagram" class="w-6 h-6 text-gray-300 hover:gold-text cursor-pointer transition"></i>
+                <i data-lucide="twitter" class="w-6 h-6 text-gray-300 hover:gold-text cursor-pointer transition"></i>
+            </div>
+            <div class="pt-8 border-t border-gray-50 text-gray-400 text-[10px] uppercase tracking-widest">
+                <p>&copy; 2026 Matjari Luxury Collection. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Countdown Timer
+        function startTimer(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                const displayElements = display.querySelectorAll('.bg-white');
+                if (displayElements.length >= 3) {
+                    displayElements[0].textContent = hours;
+                    displayElements[1].textContent = minutes;
+                    displayElements[2].textContent = seconds;
+                }
+
+                // Header timer
+                const headerTimer = document.querySelector('.bg-white.py-6 .flex.space-x-2');
+                if (headerTimer) {
+                    const headerElements = headerTimer.querySelectorAll('.bg-black');
+                    if (headerElements.length >= 3) {
+                        headerElements[0].textContent = hours;
+                        headerElements[1].textContent = minutes;
+                        headerElements[2].textContent = seconds;
+                    }
+                }
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            const timerDuration = 60 * 60 * 2 + 60 * 41 + 1; // 2h 41m 01s
+            const timerDisplay = document.querySelector('.bg-red-50 .flex.gap-2');
+            startTimer(timerDuration, timerDisplay);
+        };
+
+        let currentQuantity = 1;
+          const pricePerUnit = 239;
+          const bulkPriceUnit = 189.5; // 2 units for 379 (2 * 189.5 = 379)
+
+         function updateQuantity(change) {
+             currentQuantity += change;
+             if (currentQuantity < 1) currentQuantity = 1;
+             document.getElementById('quantityInput').value = currentQuantity;
+             
+             // Update hidden form field
+             document.getElementById('formQuantity').value = currentQuantity;
+             
+             // Auto-select offer and calculate price
+             if (currentQuantity >= 2) {
+                 // Force selectOffer with 2 for multi-quantity logic
+                 selectOffer(2, currentQuantity * bulkPriceUnit);
+             } else {
+                 selectOffer(1, pricePerUnit);
+             }
+         }
+
+         function addToCart() {
+             const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+             console.log('TikTok Event: AddToCart', val);
+             if (typeof ttq !== 'undefined') {
+                 ttq.track('AddToCart', {
+                     contents: [{
+                         content_id: 'triple-charging-station',
+                         content_name: 'محطة شحن ثلاثية',
+                         quantity: currentQuantity,
+                         price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                     }],
+                     value: val,
+                     currency: 'SAR'
+                 });
+             }
+             // Direct scroll to checkout form after adding to cart
+             document.getElementById('checkoutSection').scrollIntoView({ behavior: 'smooth' });
+         }
+
+         function scrollToCheckout() {
+             const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+             console.log('TikTok Event: InitiateCheckout', val);
+             // Track TikTok Event: InitiateCheckout
+             if (typeof ttq !== 'undefined') {
+                 ttq.track('InitiateCheckout', {
+                     contents: [{
+                         content_id: 'triple-charging-station',
+                         content_name: 'محطة شحن ثلاثية',
+                         quantity: currentQuantity,
+                         price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                     }],
+                     value: val,
+                     currency: 'SAR'
+                 });
+             }
+             document.getElementById('checkoutSection').scrollIntoView({ behavior: 'smooth' });
+         }
+
+        function selectOffer(offerId, price) {
+            // Update UI for offer cards
+            const cards = document.querySelectorAll('.offer-card');
+            cards.forEach(card => {
+                card.classList.remove('border-blue-400', 'bg-blue-50', 'border-2');
+                card.classList.add('border-gray-200', 'bg-white', 'border');
+            });
+
+            const selectedCard = document.getElementById('offer' + offerId);
+            if (selectedCard) {
+                selectedCard.classList.remove('border-gray-200', 'bg-white', 'border');
+                selectedCard.classList.add('border-blue-400', 'bg-blue-50', 'border-2');
+            }
+
+            // If user explicitly clicks on offer 2 but quantity is 1, set it to 2
+            if (offerId === 2 && currentQuantity < 2) {
+                currentQuantity = 2;
+                document.getElementById('quantityInput').value = currentQuantity;
+                document.getElementById('formQuantity').value = currentQuantity;
+            } else if (offerId === 1 && currentQuantity >= 2) {
+                currentQuantity = 1;
+                document.getElementById('quantityInput').value = currentQuantity;
+                document.getElementById('formQuantity').value = currentQuantity;
+            }
+
+            // RE-CALCULATE PRICE based on the logic: if quantity > 1, all are bulkPriceUnit
+            const finalPrice = currentQuantity >= 2 ? 379 : pricePerUnit;
+            const finalOriginalPrice = currentQuantity >= 2 ? 780 : 390;
+            const couponCode = currentQuantity >= 3 ? "MATJARI-SAVE10" : "لا يوجد";
+            
+            // Update Totals everywhere
+            const priceStr = finalPrice.toFixed(2) + ' ر.س';
+            const originalPriceStr = finalOriginalPrice.toFixed(2) + ' ر.س';
+            
+            document.getElementById('summaryTotal').innerText = priceStr;
+            document.getElementById('buttonTotal').innerText = '(' + priceStr + ')';
+            
+            // Update hidden form field for total and coupon
+            document.getElementById('formTotal').value = priceStr;
+            document.getElementById('formCoupon').value = couponCode;
+            
+            // Update the bulk offer card total dynamically in the offer section
+            const bulkOfferTotal = document.getElementById('bulkOfferTotal');
+            if (bulkOfferTotal) {
+                const displayBulkTotal = (currentQuantity >= 2 ? 379 : 379).toFixed(2);
+                bulkOfferTotal.innerText = 'الإجمالي: ' + displayBulkTotal + ' ر.س';
+            }
+            
+            // Update main product price at top (Show Total Price)
+            const mainPrice = document.getElementById('mainPrice');
+            if (mainPrice) mainPrice.innerText = priceStr;
+
+            // Update original price and discount badge at top
+            const originalPriceEl = document.getElementById('originalPrice');
+            const discountBadgeEl = document.getElementById('discountBadge');
+            if (originalPriceEl && discountBadgeEl) {
+                originalPriceEl.innerText = originalPriceStr;
+                discountBadgeEl.innerText = currentQuantity >= 2 ? 'خصم 51%' : 'خصم 39%';
+            }
+            
+            // Update offer text if 3 or more are selected
+            const bulkOfferCouponText = document.querySelector('#offer2 .text-green-600');
+            if (bulkOfferCouponText) {
+                if (currentQuantity >= 3) {
+                    bulkOfferCouponText.innerText = "✅ تم تفعيل كوبون الخصم 10%!";
+                    bulkOfferCouponText.classList.remove('animate-pulse');
+                } else {
+                    bulkOfferCouponText.innerText = "🎁 اشتري 3 قطع واحصل على كوبون 10%!";
+                    bulkOfferCouponText.classList.add('animate-pulse');
+                }
+            }
+            
+            // Update bottom sticky bar total
+            const stickyTotal = document.querySelector('.fixed.bottom-0 .gold-text');
+            if (stickyTotal) stickyTotal.innerText = priceStr;
+        }
+        
+        let currentImageIndex = 0;
+        const images = [
+            "image-1.jpg",
+            "image-2.jpg",
+            "image-3.jpg",
+            "image-4.jpg",
+            "image-5.jpg",
+            "image-6.jpg"
+        ];
+
+        function changeImage(element) {
+            const src = typeof element === 'string' ? element : element.src;
+            const filename = src.split('/').pop();
+            currentImageIndex = images.indexOf(filename);
+            
+            document.getElementById('mainImage').src = src;
+            
+            // Update active thumbnail border
+            const thumbs = document.querySelectorAll('.thumb-img');
+            thumbs.forEach((img, index) => {
+                img.classList.remove('border-black', 'border-2');
+                img.classList.add('border', 'border-gray-200');
+                if (images[index] === filename) {
+                    img.classList.remove('border-gray-200', 'border');
+                    img.classList.add('border-black', 'border-2');
+                }
+            });
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            const nextSrc = images[currentImageIndex];
+            const thumb = document.querySelectorAll('.thumb-img')[currentImageIndex];
+            changeImage(thumb);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            const prevSrc = images[currentImageIndex];
+            const thumb = document.querySelectorAll('.thumb-img')[currentImageIndex];
+            changeImage(thumb);
+        }
+
+        // Simple marquee effect for top bar
+        const marquee = document.querySelector('.animate-marquee');
+
+        // Form Submission Logic
+        let submitted = false;
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const successMessage = document.getElementById('successMessage');
+        const formFields = document.getElementById('formFields');
+        const paymentSection = document.getElementById('paymentSection');
+        const summarySection = document.getElementById('summarySection');
+
+        function showLoading() {
+            submitBtn.disabled = true;
+            btnText.innerText = 'جاري إرسال الطلب...';
+            submitBtn.classList.add('opacity-70');
+        }
+
+        function showSuccess() {
+            const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+            console.log('TikTok Event: CompletePayment', val);
+            // Track TikTok Event: CompletePayment
+            if (typeof ttq !== 'undefined') {
+                ttq.track('CompletePayment', {
+                    contents: [{
+                        content_id: 'triple-charging-station',
+                         content_name: 'محطة شحن ثلاثية',
+                        quantity: currentQuantity,
+                        price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                    }],
+                    value: val,
+                    currency: 'SAR'
+                });
+            }
+
+            // Show coupon if quantity >= 3
+            if (currentQuantity >= 3) {
+                document.getElementById('couponDisplay').classList.remove('hidden');
+            }
+
+            // Hide form elements
+            formFields.classList.add('hidden');
+            paymentSection.classList.add('hidden');
+            summarySection.classList.add('hidden');
+            
+            // Show success message
+            successMessage.classList.remove('hidden');
+            lucide.createIcons(); // Initialize check-circle icon
+
+            // Redirect after 5 seconds instead of 3 if coupon is shown
+            setTimeout(() => {
+                window.location.href = 'https://2134719.dukan.shop/';
+            }, currentQuantity >= 3 ? 8000 : 3000);
+        }
+
+        // Initialize Formspree AJAX
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { 
+            formElement: '#orderForm', 
+            formId: 'meepgnnv',
+            onSubmit: () => {
+                const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+                console.log('TikTok Event: PlaceAnOrder (Button Click)', val);
+                if (typeof ttq !== 'undefined') {
+                    ttq.track('PlaceAnOrder', {
+                        contents: [{
+                            content_id: 'triple-charging-station',
+                         content_name: 'محطة شحن ثلاثية',
+                            quantity: currentQuantity,
+                            price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                        }],
+                        value: val,
+                        currency: 'SAR'
+                    });
+                }
+                showLoading();
+                return true; // Ensure the library continues
+            },
+            onSuccess: (data) => {
+                console.log('Success:', data);
+                showSuccess();
+            },
+            onError: (err) => {
+                console.error('Error:', err);
+                submitBtn.disabled = false;
+                btnText.innerText = 'تأكيد الطلب الآن';
+                submitBtn.classList.remove('opacity-70');
+                alert('عذراً، حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى أو التأكد من تفعيل الفورم في Formspree.');
+            }
+        });
+    </script>
+
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
