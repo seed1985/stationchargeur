@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محطة شحن ثلاثية - Matjari</title>
+    <title>محطة شحن ثلاثية - متجري</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
@@ -259,7 +259,6 @@
                                     <div>
                                         <p class="font-bold">اشتري قطعتين أو أكثر ووفر 51%</p>
                                         <p class="text-xs text-gray-400">سعر الوحدة 189.5 ريال فقط</p>
-                                        <p class="text-xs text-green-600 font-bold mt-1 animate-pulse">🎁 اشتري 3 قطع واحصل على كوبون 10%!</p>
                                     </div>
                                     <div id="bulkDiscountBadge" class="bg-red-600 text-white text-xs px-2 py-1 rounded font-bold">خصم 51%</div>
                                 </div>
@@ -284,7 +283,6 @@
                         <input type="hidden" id="formQuantity" name="quantity" value="1">
                         <input type="hidden" id="formTotal" name="total" value="239 ر.س">
                         <input type="hidden" name="product_name" value="محطة شحن ثلاثية">
-                        <input type="hidden" id="formCoupon" name="coupon_code" value="لا يوجد">
                         
                         <div id="formFields" class="grid grid-cols-1 gap-5">
                             <div class="space-y-2">
@@ -356,21 +354,6 @@
                             <h3 class="text-2xl font-black">تم استلام طلبك بنجاح!</h3>
                             <p class="text-gray-500">شكراً لثقتكم بنا. سنتصل بكم قريباً لتأكيد التوصيل.</p>
                             
-                            <div id="couponDisplay" class="hidden bg-gold-50 border-2 border-dashed border-gold-400 p-6 rounded-2xl mt-6 relative">
-                                <p class="text-xs text-gold-600 font-bold uppercase tracking-widest mb-2">هدية خاصة لك!</p>
-                                <p class="text-sm font-bold text-gray-800 mb-4">كوبون خصم 10% صالح لمدة 48 ساعة على جميع المنتجات</p>
-                                <div class="flex flex-col items-center gap-3">
-                                    <div id="couponCodeText" class="bg-white border-2 border-gray-100 py-3 px-6 rounded-xl font-black text-2xl tracking-widest text-black inline-block">
-                                        MATJARI-SAVE10
-                                    </div>
-                                    <button type="button" onclick="copyCouponCode()" class="flex items-center gap-2 text-gold-600 font-bold text-sm hover:text-gold-700 transition">
-                                        <i data-lucide="copy" class="w-4 h-4"></i>
-                                        <span>نسخ الكود</span>
-                                    </button>
-                                </div>
-                                <p class="text-[10px] text-gray-400 mt-4 italic">* يرجى حفظ الكود أو تصوير الشاشة لاستخدامه لاحقاً</p>
-                            </div>
-
                             <p class="text-xs text-gray-400 mt-6">جاري توجيهك للمتجر...</p>
                         </div>
                     </form>
@@ -661,7 +644,7 @@
                 <i data-lucide="twitter" class="w-6 h-6 text-gray-300 hover:gold-text cursor-pointer transition"></i>
             </div>
             <div class="pt-8 border-t border-gray-50 text-gray-400 text-[10px] uppercase tracking-widest">
-                <p>&copy; 2026 Matjari Luxury Collection. جميع الحقوق محفوظة.</p>
+                <p>&copy; 2026 متجري - التشكيلة الفاخرة. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
@@ -733,7 +716,7 @@
          }
 
          function addToCart() {
-             const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+             const val = currentQuantity >= 2 ? (currentQuantity * bulkPriceUnit) : pricePerUnit;
              console.log('TikTok Event: AddToCart', val);
              if (typeof ttq !== 'undefined') {
                  ttq.track('AddToCart', {
@@ -741,7 +724,7 @@
                          content_id: 'triple-charging-station',
                          content_name: 'محطة شحن ثلاثية',
                          quantity: currentQuantity,
-                         price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                         price: currentQuantity >= 2 ? bulkPriceUnit : pricePerUnit
                      }],
                      value: val,
                      currency: 'SAR'
@@ -752,7 +735,7 @@
          }
 
          function scrollToCheckout() {
-             const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+             const val = currentQuantity >= 2 ? (currentQuantity * bulkPriceUnit) : pricePerUnit;
              console.log('TikTok Event: InitiateCheckout', val);
              // Track TikTok Event: InitiateCheckout
              if (typeof ttq !== 'undefined') {
@@ -761,7 +744,7 @@
                          content_id: 'triple-charging-station',
                          content_name: 'محطة شحن ثلاثية',
                          quantity: currentQuantity,
-                         price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                         price: currentQuantity >= 2 ? bulkPriceUnit : pricePerUnit
                      }],
                      value: val,
                      currency: 'SAR'
@@ -796,9 +779,8 @@
             }
 
             // RE-CALCULATE PRICE based on the logic: if quantity > 1, all are bulkPriceUnit
-            const finalPrice = currentQuantity >= 2 ? 379 : pricePerUnit;
-            const finalOriginalPrice = currentQuantity >= 2 ? 780 : 390;
-            const couponCode = currentQuantity >= 3 ? "MATJARI-SAVE10" : "لا يوجد";
+            const finalPrice = currentQuantity >= 2 ? (currentQuantity * bulkPriceUnit) : pricePerUnit;
+            const finalOriginalPrice = currentQuantity * 390;
             
             // Update Totals everywhere
             const priceStr = finalPrice.toFixed(2) + ' ر.س';
@@ -807,14 +789,13 @@
             document.getElementById('summaryTotal').innerText = priceStr;
             document.getElementById('buttonTotal').innerText = '(' + priceStr + ')';
             
-            // Update hidden form field for total and coupon
+            // Update hidden form field for total
             document.getElementById('formTotal').value = priceStr;
-            document.getElementById('formCoupon').value = couponCode;
             
             // Update the bulk offer card total dynamically in the offer section
             const bulkOfferTotal = document.getElementById('bulkOfferTotal');
             if (bulkOfferTotal) {
-                const displayBulkTotal = (currentQuantity >= 2 ? 379 : 379).toFixed(2);
+                const displayBulkTotal = (currentQuantity >= 2 ? (currentQuantity * bulkPriceUnit) : 379).toFixed(2);
                 bulkOfferTotal.innerText = 'الإجمالي: ' + displayBulkTotal + ' ر.س';
             }
             
@@ -830,37 +811,11 @@
                 discountBadgeEl.innerText = currentQuantity >= 2 ? 'خصم 51%' : 'خصم 39%';
             }
             
-            // Update offer text if 3 or more are selected
-            const bulkOfferCouponText = document.querySelector('#offer2 .text-green-600');
-            if (bulkOfferCouponText) {
-                if (currentQuantity >= 3) {
-                    bulkOfferCouponText.innerText = "✅ تم تفعيل كوبون الخصم 10%!";
-                    bulkOfferCouponText.classList.remove('animate-pulse');
-                } else {
-                    bulkOfferCouponText.innerText = "🎁 اشتري 3 قطع واحصل على كوبون 10%!";
-                    bulkOfferCouponText.classList.add('animate-pulse');
-                }
-            }
-            
             // Update bottom sticky bar total
             const stickyTotal = document.querySelector('.fixed.bottom-0 .gold-text');
             if (stickyTotal) stickyTotal.innerText = priceStr;
         }
 
-        function copyCouponCode() {
-            const code = document.getElementById('couponCodeText').innerText.trim();
-            navigator.clipboard.writeText(code).then(() => {
-                const btn = event.currentTarget;
-                const originalContent = btn.innerHTML;
-                btn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i><span>تم النسخ!</span>';
-                lucide.createIcons();
-                setTimeout(() => {
-                    btn.innerHTML = originalContent;
-                    lucide.createIcons();
-                }, 2000);
-            });
-        }
-        
         let currentImageIndex = 0;
         const images = [
             "image-1.jpg",
@@ -908,15 +863,6 @@
         const marquee = document.querySelector('.animate-marquee');
 
         // Form Submission Logic
-        let submitted = false;
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-        const successMessage = document.getElementById('successMessage');
-        const formFields = document.getElementById('formFields');
-        const paymentSection = document.getElementById('paymentSection');
-        const summarySection = document.getElementById('summarySection');
-
-        // Form Submission Logic
         const orderForm = document.getElementById('orderForm');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
@@ -938,7 +884,7 @@
         }
 
         function showSuccess() {
-            const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+            const val = currentQuantity >= 2 ? (currentQuantity * bulkPriceUnit) : pricePerUnit;
             console.log('TikTok Event: CompletePayment', val);
             if (typeof ttq !== 'undefined') {
                 ttq.track('CompletePayment', {
@@ -946,15 +892,11 @@
                         content_id: 'triple-charging-station',
                         content_name: 'محطة شحن ثلاثية',
                         quantity: currentQuantity,
-                        price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                        price: currentQuantity >= 2 ? bulkPriceUnit : pricePerUnit
                     }],
                     value: val,
                     currency: 'SAR'
                 });
-            }
-
-            if (currentQuantity >= 3) {
-                document.getElementById('couponDisplay').classList.remove('hidden');
             }
 
             formFields.classList.add('hidden');
@@ -965,20 +907,20 @@
 
             setTimeout(() => {
                 window.location.href = 'https://2134719.dukan.shop/';
-            }, currentQuantity >= 3 ? 8000 : 3000);
+            }, 3000);
         }
 
         orderForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const val = currentQuantity >= 2 ? 379 : pricePerUnit;
+            const val = currentQuantity >= 2 ? (currentQuantity * bulkPriceUnit) : pricePerUnit;
             if (typeof ttq !== 'undefined') {
                 ttq.track('PlaceAnOrder', {
                     contents: [{
                         content_id: 'triple-charging-station',
                         content_name: 'محطة شحن ثلاثية',
                         quantity: currentQuantity,
-                        price: currentQuantity >= 2 ? 189.5 : pricePerUnit
+                        price: currentQuantity >= 2 ? bulkPriceUnit : pricePerUnit
                     }],
                     value: val,
                     currency: 'SAR'
